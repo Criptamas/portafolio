@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juan Rojas — Frontend Developer · React · Full-Stack + IA</title>
+  <meta name="description" content="Juan Rojas — Frontend Developer (React) con enfoque Full-Stack + IA. Construyo productos reales de punta a punta: React, Node y un flujo aumentado por IA. Falcón, Venezuela · Remoto.">
+  <meta property="og:title" content="Juan Rojas — Frontend Developer · React · Full-Stack + IA">
+  <meta property="og:description" content="Construyo productos reales de punta a punta: interfaces en React y back-ends en Node, con un flujo aumentado por IA. Disponible para proyectos y posiciones.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%23ec3013'/%3E%3Ctext%20x='5'%20y='23'%20font-family='Archivo,sans-serif'%20font-weight='800'%20font-size='14'%20fill='%23f3f2f2'%3EJR%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="_ds/modernist-e36039bd-2bd6-481e-ac98-f91968c36754/styles.css">
+  <script src="_ds/modernist-e36039bd-2bd6-481e-ac98-f91968c36754/_ds_bundle.js"></script>
+  <script src="image-slot.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; text-wrap: pretty; }
+    a { color: var(--color-accent-700); }
+    a:hover { color: var(--color-accent); }
+    @keyframes jrPulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 45%, transparent); } 70% { box-shadow: 0 0 0 9px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+    @media (max-width: 700px) { .nav a { display: none; } }
+  </style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column;background:var(--color-bg)">
+  <nav class="nav" style="position:sticky;top:0;z-index:40;background:var(--color-bg);padding-inline:max(clamp(20px,5vw,64px), calc((100% - 1200px) / 2 + clamp(20px,5vw,64px)))">
+    <span class="nav-brand">Juan Rojas</span>
+    <a href="#stack" style="text-decoration:none;color:var(--color-text);font-size:14px" style-hover="color:var(--color-accent)">{{ t.nav.stack }}</a>
+    <a href="#proyectos" style="text-decoration:none;color:var(--color-text);font-size:14px" style-hover="color:var(--color-accent)">{{ t.nav.proyectos }}</a>
+    <a href="#experiencia" style="text-decoration:none;color:var(--color-text);font-size:14px" style-hover="color:var(--color-accent)">{{ t.nav.experiencia }}</a>
+    <a href="#sobre-mi" style="text-decoration:none;color:var(--color-text);font-size:14px" style-hover="color:var(--color-accent)">{{ t.nav.sobre }}</a>
+    <a href="#contacto" style="text-decoration:none;color:var(--color-text);font-size:14px" style-hover="color:var(--color-accent)">{{ t.nav.contacto }}</a>
+    <div class="seg" role="group" aria-label="Idioma / Language">
+      <button type="button" class="seg-opt" style="{{ esSeg }}" onClick="{{ setEs }}" aria-pressed="{{ esPressed }}">ES</button>
+      <button type="button" class="seg-opt" style="{{ enSeg }}" onClick="{{ setEn }}" aria-pressed="{{ enPressed }}">EN</button>
+    </div>
+  </nav>
+  <main style="width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+
+    <section id="inicio" data-screen-label="01 Hero" style="display:flex;flex-wrap:wrap;gap:48px clamp(32px,5vw,72px);align-items:stretch;padding:clamp(48px,8vw,100px) 0 clamp(40px,6vw,72px)">
+      <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:26px">
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <span class="tag tag-accent" style="gap:8px;padding:5px 12px;font-size:12px;font-weight:600">
+            <span style="width:8px;height:8px;background:var(--color-accent);display:inline-block;animation:jrPulse 1.8s ease-out infinite"></span>
+            {{ t.hero.avail }}
+          </span>
+          <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 62%, transparent)">{{ t.hero.loc }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h1 style="font-size:clamp(46px,7vw,88px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 0 -0.058em">Juan Rojas</h1>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:clamp(17px,2.2vw,22px);line-height:1.3;margin:0">{{ t.hero.role }}</p>
+        </div>
+        <p style="font-size:17px;line-height:1.65;margin:0;max-width:56ch;color:color-mix(in srgb, var(--color-text) 80%, transparent)">{{ t.hero.value }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a class="btn btn-primary" href="#proyectos">{{ t.hero.ctaProjects }}</a>
+          <a class="btn btn-secondary" href="/files/mi-hoja-de-vida.pdf" download="mi-hoja-de-vida.pdf">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+            {{ t.hero.ctaCv }}
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/Criptamas" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+            GitHub
+          </a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/criptamas/" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <sc-if value="{{ showPhoto }}" hint-placeholder-val="{{ true }}">
+        <figure style="flex:0 1 320px;min-width:250px;margin:0;border:2px solid var(--color-divider);background:var(--color-surface)">
+          <image-slot id="retrato" shape="rect" fit="cover" placeholder="Tu foto — arrástrala aquí" style="width:100%;aspect-ratio:4/5"></image-slot>
+        </figure>
+      </sc-if>
+    </section>
+
+    <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+    <section aria-label="Métricas" data-screen-label="Métricas" style="display:flex;flex-wrap:wrap;gap:28px clamp(40px,6vw,88px);padding:clamp(28px,4vw,44px) 0">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(32px,3.4vw,46px);line-height:1;color:var(--color-accent);margin:0;font-variant-numeric:tabular-nums">{{ s.n }}</p>
+          <p style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;margin:0;color:color-mix(in srgb, var(--color-text) 70%, transparent)">{{ s.l }}</p>
+        </div>
+      </sc-for>
+    </section>
+    <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+
+    <section id="stack" data-screen-label="02 Stack" style="padding:clamp(44px,7vw,80px) 0">
+      <h2 style="font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.015em;margin:0 0 clamp(24px,4vw,40px) -0.03em"><span style="color:var(--color-accent);font-variant-numeric:tabular-nums">02</span> — {{ t.sec.stack }}</h2>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ stackGroups }}" as="g" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:minmax(140px,220px) minmax(0,1fr);gap:12px clamp(20px,4vw,48px);padding:24px 0;border-top:2px solid var(--color-divider)">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <h3 style="font-size:15px;font-weight:600;letter-spacing:0;margin:0">{{ g.name }}</h3>
+              <sc-if value="{{ g.note }}"><p style="font-size:13px;line-height:1.5;margin:0;color:color-mix(in srgb, var(--color-text) 60%, transparent)">{{ g.note }}</p></sc-if>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start">
+              <sc-for list="{{ g.chips }}" as="c" hint-placeholder-count="6">
+                <span class="tag" style="font-size:12px;letter-spacing:0.02em;padding:5px 12px;border:1px solid var(--color-divider);color:var(--color-text)">{{ c }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+
+    <section id="proyectos" data-screen-label="03 Proyectos" style="padding:clamp(44px,7vw,80px) 0">
+      <h2 style="font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.015em;margin:0 0 clamp(24px,4vw,40px) -0.03em"><span style="color:var(--color-accent);font-variant-numeric:tabular-nums">03</span> — {{ t.sec.proyectos }}</h2>
+      <div style="display:grid;gap:2px;border:2px solid var(--color-divider);background:var(--color-divider)">
+        <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));background:var(--color-surface)">
+          <div style="padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;align-items:flex-start;gap:16px">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--color-accent)">{{ t.flagship.kicker }}</span>
+            <h3 style="font-size:clamp(26px,3vw,36px);letter-spacing:-0.015em;margin:0">Medaner</h3>
+            <p style="font-size:15px;font-weight:600;line-height:1.5;margin:0">{{ t.flagship.context }}</p>
+            <p style="font-size:15px;line-height:1.6;margin:0;max-width:52ch;color:color-mix(in srgb, var(--color-text) 75%, transparent)">{{ t.flagship.desc }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ flagshipTags }}" as="c" hint-placeholder-count="6">
+                <span class="tag" style="font-size:11px;padding:3px 10px;border:1px solid var(--color-divider);color:var(--color-text)">{{ c }}</span>
+              </sc-for>
+            </div>
+            <a class="btn btn-primary" href="https://www.medaner.com/" target="_blank" rel="noopener noreferrer" style="margin-top:6px">
+              {{ t.flagship.live }}
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+          <sc-if value="{{ showShot }}" hint-placeholder-val="{{ true }}">
+            <div style="position:relative;min-height:300px;background:var(--color-neutral-200)">
+              <image-slot id="shot-medaner" shape="rect" fit="cover" placeholder="Captura de Medaner — arrástrala aquí" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+            </div>
+          </sc-if>
+        </article>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:2px">
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+            <article class="card" style="background:var(--color-bg);padding:clamp(22px,3vw,32px);gap:12px">
+              <span class="card-kicker" style="color:var(--color-accent-700)">{{ p.kicker }}</span>
+              <h3 class="card-title" style="font-size:21px">{{ p.title }}</h3>
+              <p class="card-body" style="font-size:14px;line-height:1.6;opacity:1;color:color-mix(in srgb, var(--color-text) 75%, transparent)">{{ p.desc }}</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px">
+                <sc-for list="{{ p.tags }}" as="c" hint-placeholder-count="4">
+                  <span class="tag" style="font-size:11px;padding:3px 10px;border:1px solid var(--color-divider);color:var(--color-text)">{{ c }}</span>
+                </sc-for>
+              </div>
+              <div style="display:flex;gap:20px;margin-top:6px">
+                <a href="{{ p.live }}" target="_blank" rel="noopener noreferrer" style="font-weight:600;font-size:13px;color:var(--color-accent-700);display:inline-flex;align-items:center;gap:5px;text-decoration:none" style-hover="text-decoration:underline">
+                  Live
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                </a>
+                <a href="{{ p.code }}" target="_blank" rel="noopener noreferrer" style="font-weight:600;font-size:13px;color:var(--color-accent-700);display:inline-flex;align-items:center;gap:5px;text-decoration:none" style-hover="text-decoration:underline">
+                  Code
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                </a>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </div>
+      <div style="margin-top:24px">
+        <a class="btn btn-secondary" href="https://github.com/Criptamas?tab=repositories" target="_blank" rel="noopener noreferrer">
+          {{ t.moreGithub }}
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+      </div>
+    </section>
+    <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+
+    <section id="experiencia" data-screen-label="04 Experiencia" style="padding:clamp(44px,7vw,80px) 0">
+      <h2 style="font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.015em;margin:0 0 clamp(24px,4vw,40px) -0.03em"><span style="color:var(--color-accent);font-variant-numeric:tabular-nums">04</span> — {{ t.sec.exp }}</h2>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ timeline }}" as="e" hint-placeholder-count="2">
+          <div style="display:grid;grid-template-columns:minmax(120px,200px) minmax(0,1fr);gap:8px clamp(20px,4vw,48px);padding:26px 0;border-top:2px solid var(--color-divider)">
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin:0;font-variant-numeric:tabular-nums">{{ e.date }}</p>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h3 style="font-size:18px;letter-spacing:-0.01em;margin:0">{{ e.title }}</h3>
+              <p style="font-size:14px;line-height:1.6;margin:0;max-width:64ch;color:color-mix(in srgb, var(--color-text) 70%, transparent)">{{ e.desc }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+
+    <section id="formacion" data-screen-label="05 Formación" style="padding:clamp(44px,7vw,80px) 0">
+      <h2 style="font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.015em;margin:0 0 clamp(24px,4vw,40px) -0.03em"><span style="color:var(--color-accent);font-variant-numeric:tabular-nums">05</span> — {{ t.sec.formacion }}</h2>
+      <div style="display:grid;grid-template-columns:minmax(140px,220px) minmax(0,1fr);gap:12px clamp(20px,4vw,48px);padding-top:26px;border-top:2px solid var(--color-divider)">
+        <h3 style="font-size:15px;font-weight:600;letter-spacing:0;margin:0">Platzi</h3>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px">
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ courses }}" as="c" hint-placeholder-count="4">
+              <span class="tag" style="font-size:12px;letter-spacing:0.02em;padding:5px 12px;border:1px solid var(--color-divider);color:var(--color-text)">{{ c }}</span>
+            </sc-for>
+          </div>
+          <p style="font-size:13px;line-height:1.6;margin:0;color:color-mix(in srgb, var(--color-text) 60%, transparent)">
+            {{ t.formacion.note }}
+            <a href="https://www.linkedin.com/in/criptamas/" target="_blank" rel="noopener noreferrer" style="font-weight:600">{{ t.formacion.link }}</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+
+    <section id="sobre-mi" data-screen-label="06 Sobre mí" style="padding:clamp(44px,7vw,80px) 0">
+      <h2 style="font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.015em;margin:0 0 clamp(24px,4vw,40px) -0.03em"><span style="color:var(--color-accent);font-variant-numeric:tabular-nums">06</span> — {{ t.sec.sobre }}</h2>
+      <p style="font-size:clamp(17px,1.7vw,20px);line-height:1.7;margin:0;max-width:62ch;color:color-mix(in srgb, var(--color-text) 88%, transparent)">{{ t.about }}</p>
+    </section>
+
+  </main>
+
+  <section id="contacto" data-screen-label="07 Contacto" style="background:var(--color-accent);color:var(--color-bg)">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,5vw,64px);display:flex;flex-direction:column;align-items:flex-start;gap:36px">
+      <h3 style="font-size:clamp(34px,4.4vw,58px);line-height:1.06;letter-spacing:-0.015em;margin:0 0 0 -0.058em">
+        <span style="display:block">{{ t.close.l1 }}</span>
+        <span style="display:block">{{ t.close.l2 }}</span>
+      </h3>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a class="btn btn-ghost" href="mailto:criptamas@gmail.com" style="color:var(--color-bg);border:1px solid var(--color-bg);padding-inline:14px" style-hover="background:color-mix(in srgb, var(--color-bg) 15%, transparent)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          criptamas@gmail.com
+        </a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/criptamas/" target="_blank" rel="noopener noreferrer" style="color:var(--color-bg);border:1px solid var(--color-bg);padding-inline:14px" style-hover="background:color-mix(in srgb, var(--color-bg) 15%, transparent)">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/Criptamas" target="_blank" rel="noopener noreferrer" style="color:var(--color-bg);border:1px solid var(--color-bg);padding-inline:14px" style-hover="background:color-mix(in srgb, var(--color-bg) 15%, transparent)">GitHub</a>
+        <a class="btn btn-ghost" href="/files/mi-hoja-de-vida.pdf" download="mi-hoja-de-vida.pdf" style="color:var(--color-bg);border:1px solid var(--color-bg);padding-inline:14px" style-hover="background:color-mix(in srgb, var(--color-bg) 15%, transparent)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+          {{ t.close.cv }}
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer style="width:100%;max-width:1200px;margin:0 auto;padding:28px clamp(20px,5vw,64px);font-size:13px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">{{ t.footer }}</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;defaultLang&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;es&quot;, &quot;en&quot;], &quot;default&quot;: &quot;es&quot;, &quot;tsType&quot;: &quot;\&quot;es\&quot; | \&quot;en\&quot;&quot;, &quot;section&quot;: &quot;Idioma&quot; },
+  &quot;showPhoto&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Hero&quot; },
+  &quot;showFlagshipShot&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Proyectos&quot; }
+}">
+const T = {
+  es: {
+    nav: { stack: 'Stack', proyectos: 'Proyectos', experiencia: 'Experiencia', sobre: 'Sobre mí', contacto: 'Contacto' },
+    hero: {
+      role: 'Frontend Developer — React · Full-Stack + IA',
+      value: 'Construyo productos reales de punta a punta: interfaces en React y back-ends en Node, con un flujo de trabajo aumentado por IA para diseñar, construir y enviar más rápido.',
+      avail: 'Disponible para proyectos y posiciones',
+      loc: 'Falcón, Venezuela · Remoto',
+      ctaProjects: 'Ver proyectos', ctaCv: 'Descargar CV'
+    },
+    stats: [
+      { n: '2022', l: 'Programando desde' },
+      { n: '5', l: 'Productos en producción' },
+      { n: '×2', l: 'Simulaciones de equipo · No-Country' }
+    ],
+    sec: { stack: 'Stack / tecnologías', proyectos: 'Proyectos destacados', exp: 'Experiencia', formacion: 'Formación', sobre: 'Sobre mí' },
+    stackGroups: [
+      { name: 'Frontend', chips: ['React', 'AstroJS', 'JavaScript (ES6+)', 'TailwindCSS', 'HTML5', 'CSS3'] },
+      { name: 'Backend', note: 'Deploy en Vercel y Render.', chips: ['Node.js', 'Express', 'APIs REST', 'Web scraping', 'Cron jobs', 'Supabase', 'Firebase'] },
+      { name: 'Desarrollo aumentado con IA', note: 'Diseño, construyo y envío productos completos con un flujo asistido por IA.', chips: ['Claude Code', 'ChatGPT', 'Gemini', 'OpenCode'] },
+      { name: 'Herramientas', chips: ['Git', 'GitHub', 'Vercel', 'Netlify'] }
+    ],
+    flagship: {
+      kicker: 'Proyecto insignia',
+      context: 'Super-app para Punto Fijo (Falcón), con dominio propio y usuarios reales.',
+      desc: 'Comercios locales sin canal digital → delivery de tiendas, viajes en mototaxi/taxi y marketplace con seguimiento de pedidos, en una sola plataforma.',
+      live: 'Ver en vivo'
+    },
+    projects: [
+      { kicker: 'Full-stack · usuarios reales', title: 'Animalitos Hoy (Batacazo)', desc: 'Resultados de lotería dispersos y tardíos → frontend en React y backend completo: scraper, API REST y un job horario que publica resultados en tiempo real.', tags: ['React', 'Node', 'Express', 'Scraping', 'API', 'Cron', 'IA'], live: 'https://batacazo.vercel.app/', code: 'https://github.com/Criptamas' },
+      { kicker: 'Prueba técnica · React', title: 'Tabla de usuarios interactiva', desc: 'Prueba técnica para posición React: tabla de usuarios con filtro por país, orden alfabético, coloreado dinámico de celdas y eliminar/restaurar filas.', tags: ['React', 'JS', 'Tablas', 'Filtros'], live: 'https://react-prueba-a1cqg89b6-criptamas-projects.vercel.app/', code: 'https://github.com/Criptamas/proto-prueba' },
+      { kicker: 'Primer proyecto pagado', title: 'Punto Flash', desc: 'Menú impreso y pedidos por WhatsApp → catálogo digital de comidas para un restaurante de Falcón.', tags: ['JavaScript', 'CSS'], live: 'https://punto-flash-web-site.vercel.app/', code: 'https://github.com/Criptamas/PuntoFlashWebSite' },
+      { kicker: 'Cliente · música', title: 'Landing Mystik', desc: 'Banda sin presencia web → landing page para la banda emo-pop Mystik.', tags: ['JavaScript', 'HTML', 'CSS', 'Landing'], live: 'https://mystik-rockband.netlify.app/', code: 'https://github.com/Criptamas/mystik-landing' }
+    ],
+    moreGithub: 'Ver más en GitHub',
+    timeline: [
+      { date: '2022 — HOY', title: 'Desarrollador freelance · proyectos para clientes', desc: 'Medaner, Animalitos Hoy, Punto Flash y Mystik: de la idea al deploy en producción.' },
+      { date: '2024', title: 'No-Country · simulaciones laborales en equipo (×2)', desc: 'Trabajo colaborativo en un flujo real de desarrollo: sprints, revisión de código y entregas en equipo.' }
+    ],
+    formacion: { courses: ['Fundamentos de JavaScript', 'Manipulación del DOM', 'ReactJS', 'HTML y CSS'], note: 'Más certificaciones próximamente.', link: 'Ver perfil de aprendizaje ↗' },
+    about: 'Empecé a programar en 2022 y pasé rápido de aprender a entregar: productos reales, para clientes reales, en producción. Hoy construyo full-stack —interfaces en React, back-ends en Node— con un flujo aumentado por IA que me permite cubrir más terreno con la misma calidad: del primer boceto al deploy.',
+    close: { l1: 'Disponible ahora.', l2: 'Construyamos algo real.', cv: 'Descargar CV' },
+    footer: '© 2026 Juan Rojas — Falcón, Venezuela · Remoto'
+  },
+  en: {
+    nav: { stack: 'Stack', proyectos: 'Projects', experiencia: 'Experience', sobre: 'About', contacto: 'Contact' },
+    hero: {
+      role: 'Frontend Developer — React · Full-Stack + AI',
+      value: 'I build real products end to end: React interfaces and Node back-ends, with an AI-augmented workflow to design, build and ship faster.',
+      avail: 'Available for projects and roles',
+      loc: 'Falcón, Venezuela · Remote',
+      ctaProjects: 'View projects', ctaCv: 'Download CV'
+    },
+    stats: [
+      { n: '2022', l: 'Coding since' },
+      { n: '5', l: 'Products in production' },
+      { n: '×2', l: 'Team simulations · No-Country' }
+    ],
+    sec: { stack: 'Stack / technologies', proyectos: 'Selected projects', exp: 'Experience', formacion: 'Learning', sobre: 'About me' },
+    stackGroups: [
+      { name: 'Frontend', chips: ['React', 'AstroJS', 'JavaScript (ES6+)', 'TailwindCSS', 'HTML5', 'CSS3'] },
+      { name: 'Backend', note: 'Deployed on Vercel and Render.', chips: ['Node.js', 'Express', 'REST APIs', 'Web scraping', 'Cron jobs', 'Supabase', 'Firebase'] },
+      { name: 'AI-augmented development', note: 'I design, build and ship complete products with an AI-assisted workflow.', chips: ['Claude Code', 'ChatGPT', 'Gemini', 'OpenCode'] },
+      { name: 'Tools', chips: ['Git', 'GitHub', 'Vercel', 'Netlify'] }
+    ],
+    flagship: {
+      kicker: 'Flagship project',
+      context: 'A super-app for Punto Fijo (Falcón), on its own domain, with real users.',
+      desc: 'Local businesses with no digital channel → store delivery, mototaxi/taxi rides and a marketplace with order tracking — one platform.',
+      live: 'View live'
+    },
+    projects: [
+      { kicker: 'Full-stack · real users', title: 'Animalitos Hoy (Batacazo)', desc: 'Scattered, delayed lottery results → React frontend and a complete backend: scraper, REST API and an hourly job publishing results in real time.', tags: ['React', 'Node', 'Express', 'Scraping', 'API', 'Cron', 'AI'], live: 'https://batacazo.vercel.app/', code: 'https://github.com/Criptamas' },
+      { kicker: 'Technical challenge · React', title: 'Interactive users table', desc: 'Technical challenge for a React role: users table with country filter, alphabetical sorting, dynamic cell coloring and delete/restore rows.', tags: ['React', 'JS', 'Tables', 'Filters'], live: 'https://react-prueba-a1cqg89b6-criptamas-projects.vercel.app/', code: 'https://github.com/Criptamas/proto-prueba' },
+      { kicker: 'First paid project', title: 'Punto Flash', desc: 'Printed menu and WhatsApp orders → a digital food catalog for a restaurant in Falcón.', tags: ['JavaScript', 'CSS'], live: 'https://punto-flash-web-site.vercel.app/', code: 'https://github.com/Criptamas/PuntoFlashWebSite' },
+      { kicker: 'Client · music', title: 'Landing Mystik', desc: 'A band with no web presence → landing page for the emo-pop band Mystik.', tags: ['JavaScript', 'HTML', 'CSS', 'Landing'], live: 'https://mystik-rockband.netlify.app/', code: 'https://github.com/Criptamas/mystik-landing' }
+    ],
+    moreGithub: 'More on GitHub',
+    timeline: [
+      { date: '2022 — NOW', title: 'Freelance developer · client projects', desc: 'Medaner, Animalitos Hoy, Punto Flash and Mystik: from idea to production deploy.' },
+      { date: '2024', title: 'No-Country · team work simulations (×2)', desc: 'Collaborative work in a real development flow: sprints, code review and team delivery.' }
+    ],
+    formacion: { courses: ['JavaScript Fundamentals', 'DOM Manipulation', 'ReactJS', 'HTML & CSS'], note: 'More certifications on the way.', link: 'View learning profile ↗' },
+    about: 'I started coding in 2022 and moved fast from learning to shipping: real products, for real clients, in production. Today I build full-stack — React interfaces, Node back-ends — with an AI-augmented workflow that lets me cover more ground at the same quality: from first sketch to deploy.',
+    close: { l1: 'Available now.', l2: "Let's build something real.", cv: 'Download CV' },
+    footer: '© 2026 Juan Rojas — Falcón, Venezuela · Remote'
+  }
+};
+const SEG_BASE = { border: '0', background: 'transparent', color: 'inherit', fontFamily: 'inherit' };
+const SEG_ON = { border: '0', background: 'var(--color-text)', color: 'var(--color-bg)', fontFamily: 'inherit' };
+class Component extends DCLogic {
+  state = { lang: null };
+  current() {
+    const l = this.state.lang;
+    if (l === 'es' || l === 'en') return l;
+    return this.props.defaultLang === 'en' ? 'en' : 'es';
+  }
+  componentDidMount() {
+    try {
+      const s = localStorage.getItem('jr-portfolio-lang');
+      if (s === 'es' || s === 'en') this.setState({ lang: s });
+    } catch (e) {}
+    document.documentElement.lang = this.current();
+  }
+  setLang(l) {
+    this.setState({ lang: l });
+    try { localStorage.setItem('jr-portfolio-lang', l); } catch (e) {}
+    document.documentElement.lang = l;
+  }
+  renderVals() {
+    const L = this.current();
+    const t = T[L];
+    return {
+      t,
+      stats: t.stats,
+      stackGroups: t.stackGroups,
+      projects: t.projects,
+      timeline: t.timeline,
+      courses: t.formacion.courses,
+      flagshipTags: ['React', 'Node', 'Express', 'Supabase / Firebase', 'Marketplace', L === 'es' ? 'IA' : 'AI'],
+      setEs: () => this.setLang('es'),
+      setEn: () => this.setLang('en'),
+      esSeg: L === 'es' ? SEG_ON : SEG_BASE,
+      enSeg: L === 'en' ? SEG_ON : SEG_BASE,
+      esPressed: L === 'es' ? 'true' : 'false',
+      enPressed: L === 'en' ? 'true' : 'false',
+      showPhoto: this.props.showPhoto ?? true,
+      showShot: this.props.showFlagshipShot ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
