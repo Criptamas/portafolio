@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { T, flagshipTags } from './content'
+import { Analytics } from "@vercel/analytics/react"
 
 /* ----------------------------- Icons (Lucide) ----------------------------- */
 const svgBase = {
@@ -545,6 +546,7 @@ export default function App() {
       <footer className="mx-auto w-full max-w-[1200px] px-[clamp(20px,5vw,64px)] py-7 text-[13px] text-ink-65">
         {t.footer}
       </footer>
+      <Analytics/>
     </div>
   )
 }
