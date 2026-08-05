@@ -42,6 +42,19 @@ const Mail = ({ size = 15 }) => (
     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
   </svg>
 )
+const IconMenu = ({ size = 20 }) => (
+  <svg width={size} height={size} {...svgBase} aria-hidden="true">
+    <line x1="4" x2="20" y1="6" y2="6" />
+    <line x1="4" x2="20" y1="12" y2="12" />
+    <line x1="4" x2="20" y1="18" y2="18" />
+  </svg>
+)
+const IconX = ({ size = 20 }) => (
+  <svg width={size} height={size} {...svgBase} aria-hidden="true">
+    <path d="M18 6 6 18" />
+    <path d="m6 6 12 12" />
+  </svg>
+)
 
 /* -------------------------- Reveal-on-scroll wrap -------------------------- */
 function Reveal({ children, className = '' }) {
@@ -118,6 +131,7 @@ const Rule = () => <hr className="m-0 h-[2px] border-0 bg-divider" />
 /* --------------------------------- App ------------------------------------ */
 export default function App() {
   const [lang, setLang] = useState('es')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     try {
@@ -154,32 +168,61 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* -------------------------------- Nav -------------------------------- */}
-      <nav className="nav">
-        <span className="nav-brand">Juan Rojas</span>
-        {navLinks.map((l) => (
-          <a key={l.href} className="nav-link" href={l.href}>
-            {l.label}
-          </a>
-        ))}
-        <div className="seg" role="group" aria-label="Idioma / Language">
+      <header className="site-header">
+        <nav className="nav" aria-label={lang === 'es' ? 'Principal' : 'Main'}>
+          <span className="nav-brand">Juan Rojas</span>
+          {navLinks.map((l) => (
+            <a key={l.href} className="nav-link" href={l.href}>
+              {l.label}
+            </a>
+          ))}
           <button
             type="button"
-            className="seg-opt"
-            aria-pressed={lang === 'es'}
-            onClick={() => changeLang('es')}
+            className="nav-toggle"
+            aria-label={
+              menuOpen
+                ? lang === 'es'
+                  ? 'Cerrar menú'
+                  : 'Close menu'
+                : lang === 'es'
+                  ? 'Abrir menú'
+                  : 'Open menu'
+            }
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen((v) => !v)}
           >
-            ES
+            {menuOpen ? <IconX /> : <IconMenu />}
           </button>
-          <button
-            type="button"
-            className="seg-opt"
-            aria-pressed={lang === 'en'}
-            onClick={() => changeLang('en')}
-          >
-            EN
-          </button>
-        </div>
-      </nav>
+          <div className="seg" role="group" aria-label="Idioma / Language">
+            <button
+              type="button"
+              className="seg-opt"
+              aria-pressed={lang === 'es'}
+              onClick={() => changeLang('es')}
+            >
+              ES
+            </button>
+            <button
+              type="button"
+              className="seg-opt"
+              aria-pressed={lang === 'en'}
+              onClick={() => changeLang('en')}
+            >
+              EN
+            </button>
+          </div>
+        </nav>
+        {menuOpen && (
+          <div id="mobile-menu" className="nav-mobile">
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>
+                {l.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </header>
 
       <main className="mx-auto w-full max-w-[1200px] px-[clamp(20px,5vw,64px)]">
         {/* ------------------------------- Hero ------------------------------ */}
@@ -240,7 +283,7 @@ export default function App() {
               </a>
             </div>
           </div>
-          <figure className="m-0 min-w-[250px] flex-[0_1_320px] border-2 border-divider bg-surface">
+          <figure className="m-0 grow-0 basis-full border-2 border-divider bg-surface min-[700px]:min-w-[250px] min-[700px]:basis-[320px]">
             <ImageSlot
               src="/juan-rojas.jpg"
               alt="Juan Rojas"
@@ -255,7 +298,7 @@ export default function App() {
         <Reveal>
           <section
             aria-label={lang === 'es' ? 'Métricas' : 'Metrics'}
-            className="flex flex-wrap gap-x-[clamp(40px,6vw,88px)] gap-y-7 py-[clamp(28px,4vw,44px)]"
+            className="flex flex-col gap-y-6 py-[clamp(28px,4vw,44px)] min-[700px]:flex-row min-[700px]:flex-wrap min-[700px]:gap-x-[clamp(40px,6vw,88px)] min-[700px]:gap-y-7"
           >
             {t.stats.map((s) => (
               <div key={s.l} className="flex flex-col gap-[10px]">
@@ -279,7 +322,7 @@ export default function App() {
               {t.stackGroups.map((g) => (
                 <div
                   key={g.name}
-                  className="grid grid-cols-[minmax(140px,220px)_minmax(0,1fr)] gap-x-[clamp(20px,4vw,48px)] gap-y-3 border-t-2 border-divider py-6"
+                  className="grid grid-cols-1 gap-x-[clamp(20px,4vw,48px)] gap-y-3 border-t-2 border-divider py-6 min-[700px]:grid-cols-[minmax(140px,220px)_minmax(0,1fr)]"
                 >
                   <div className="flex flex-col gap-[6px]">
                     <h3 className="text-[15px] font-semibold">{g.name}</h3>
@@ -399,7 +442,7 @@ export default function App() {
               {t.timeline.map((e) => (
                 <div
                   key={e.date}
-                  className="grid grid-cols-[minmax(120px,200px)_minmax(0,1fr)] gap-x-[clamp(20px,4vw,48px)] gap-y-2 border-t-2 border-divider py-[26px]"
+                  className="grid grid-cols-1 gap-x-[clamp(20px,4vw,48px)] gap-y-2 border-t-2 border-divider py-[26px] min-[700px]:grid-cols-[minmax(120px,200px)_minmax(0,1fr)]"
                 >
                   <p className="text-[15px] font-extrabold tabular-nums">{e.date}</p>
                   <div className="flex flex-col gap-2">
@@ -419,7 +462,7 @@ export default function App() {
             <h2 className="sec-h">
               <span className="sec-num">05</span> — {t.sec.formacion}
             </h2>
-            <div className="grid grid-cols-[minmax(140px,220px)_minmax(0,1fr)] gap-x-[clamp(20px,4vw,48px)] gap-y-3 border-t-2 border-divider pt-[26px]">
+            <div className="grid grid-cols-1 gap-x-[clamp(20px,4vw,48px)] gap-y-3 border-t-2 border-divider pt-[26px] min-[700px]:grid-cols-[minmax(140px,220px)_minmax(0,1fr)]">
               <h3 className="text-[15px] font-semibold">Platzi</h3>
               <div className="flex flex-col items-start gap-4">
                 <div className="flex flex-wrap gap-2">
